@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+</head>
+<body ng-init="a=10;b=[1,23,43,87,2,7];">
+	{{5+3}}
+	<span ng-bind="a"></span>
+	<input type="text" ng-model="x" />
+	{{x}}
+	<span ng-bind="x"></span>
+
+	<ul ng-repeat="k in b">
+		<li>{{k}}</li>
+	</ul>
+	<hr />
+	<ul ng-repeat="k in b">
+		<li ng-if="k>40">{{k}}</li>
+	</ul>
+
+	<input type="radio" ng-model="G" value="M" />M
+	<input type="radio" ng-model="G" value="F"/>F
+	You have selected: {{G}}
+
+	<input type="checkbox" ng-true-value="'Ok'" ng-false-value="'No'" ng-model="Ck"/>
+	I Agree....
+	{{Ck}}
+	
+	<!--<select ng-model="Opt">
+		<option>Select</option>
+		<option ng-repeat="k in b" value="{{k}}">{{k}}</option>
+	</select>-->
+
+	<select ng-model="Opt" ng-options="k for k in b"></select>
+	{{Opt}}
+
+	<div ng-controller="MyController">
+		{{MyVal}}
+
+		<input type="text" ng-model="MyVal" />
+
+		<input type="button" ng-click="MyFun()" value="Click Me" />
+	</div>
+</body>
+</html>
+<script src="Scripts/angular.min.js"></script>
+<script src="Scripts/myapp.js"></script>
